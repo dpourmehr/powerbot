@@ -127,5 +127,16 @@ public class Npc extends Actor implements Identifiable, Actionable {
 		return c != null ? c.colors2 : new short[]{};
 	}
 
+	public boolean hintArrow() {
+		int[] n = ctx.client().getNpcIndices();
+		for (int i = 0; i < n.length; i++) {
+			if (n[i] == ctx.client().getHintArrowNpcUid()) {
+				System.out.println(ctx.npcs.get().get(i));
+				return ctx.npcs.get().get(i).equals(this);
+			}
+		}
+		return false;
+	}
+
 
 }
